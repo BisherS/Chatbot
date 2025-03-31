@@ -1,0 +1,58 @@
+kind: TaskDialog
+modelDisplayName: Post message in a chat or channel
+modelDescription: Posts a message to a chat or a channel
+confirmation:
+  activity: Are you sure that you want to post a messsge ?
+  mode: Strict
+
+outputs:
+  - propertyName: conversationId
+
+  - propertyName: id
+
+  - propertyName: messageLink
+
+action:
+  kind: InvokeConnectorTaskAction
+  connectionReference: cr81c_websiteQACopilot.shared_teams.shared-teams-f5e35666-7105-427e-b0b9-8b32fc98f325
+  connectionProperties:
+    mode: Invoker
+    usageDescription: make it easier to post messages or post in teams channels
+
+  operationId: PostMessageToConversation
+  dynamicInputSchema:
+    properties:
+      body:
+        displayName: Post message request
+        description: The post message request
+        isRequired: true
+        order: 2
+        type: Any
+
+      location:
+        displayName: Post in
+        description: Select an option
+        isRequired: true
+        order: 1
+        dynamicValuesConfig:
+          capability: List
+
+        type: String
+
+      poster:
+        displayName: Post as
+        description: Select an option
+        isRequired: true
+        order: 0
+        enumDisplayNames:
+          - User
+          - Flow bot
+          - Power Virtual Agents (Preview)
+        enumValues:
+          - User
+          - Flow bot
+          - Power Virtual Agents
+        type: String
+
+outputMode: Specific
+triggerCondition: false

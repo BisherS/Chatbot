@@ -1,0 +1,34 @@
+<ImportExportXml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.25024.206" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.25031.00216">
+  <Entities></Entities>
+  <Roles></Roles>
+  <Workflows></Workflows>
+  <FieldSecurityProfiles></FieldSecurityProfiles>
+  <Templates />
+  <EntityMaps />
+  <EntityRelationships />
+  <OrganizationSettings />
+  <optionsets />
+  <CustomControls />
+  <EntityDataProviders />
+  <connectionreferences>
+    <connectionreference connectionreferencelogicalname="cr81c_websiteQACopilot.shared_office365.shared-office365-d6a6fada-9349-474f-9bc9-4a5cb5160bc2">
+      <connectionreferencedisplayname>cr81c_websiteQACopilot.shared_office365.shared-office365-d6a6fada-9349-474f-9bc9-4a5cb5160bc2</connectionreferencedisplayname>
+      <connectorid>/providers/Microsoft.PowerApps/apis/shared_office365</connectorid>
+      <iscustomizable>0</iscustomizable>
+      <promptingbehavior>0</promptingbehavior>
+      <statecode>0</statecode>
+      <statuscode>1</statuscode>
+    </connectionreference>
+    <connectionreference connectionreferencelogicalname="cr81c_websiteQACopilot.shared_teams.shared-teams-f5e35666-7105-427e-b0b9-8b32fc98f325">
+      <connectionreferencedisplayname>cr81c_websiteQACopilot.shared_teams.shared-teams-f5e35666-7105-427e-b0b9-8b32fc98f325</connectionreferencedisplayname>
+      <connectorid>/providers/Microsoft.PowerApps/apis/shared_teams</connectorid>
+      <iscustomizable>0</iscustomizable>
+      <promptingbehavior>0</promptingbehavior>
+      <statecode>0</statecode>
+      <statuscode>1</statuscode>
+    </connectionreference>
+  </connectionreferences>
+  <Languages>
+    <Language>1033</Language>
+  </Languages>
+</ImportExportXml>

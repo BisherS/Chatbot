@@ -1,0 +1,8 @@
+<botcomponent_connectionreferenceset>
+  <botcomponent_connectionreference botcomponentid.schemaname="cr81c_websiteQACopilot.component.MicrosoftTeams-Postmessageinachatorchannel" connectionreferenceid.connectionreferencelogicalname="cr81c_websiteQACopilot.shared_teams.shared-teams-f5e35666-7105-427e-b0b9-8b32fc98f325">
+    <iscustomizable>1</iscustomizable>
+  </botcomponent_connectionreference>
+  <botcomponent_connectionreference botcomponentid.schemaname="cr81c_websiteQACopilot.component.Office365Outlook-Sendemailwithoptions" connectionreferenceid.connectionreferencelogicalname="cr81c_websiteQACopilot.shared_office365.shared-office365-d6a6fada-9349-474f-9bc9-4a5cb5160bc2">
+    <iscustomizable>1</iscustomizable>
+  </botcomponent_connectionreference>
+</botcomponent_connectionreferenceset>

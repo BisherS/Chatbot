@@ -1,0 +1,27 @@
+kind: TaskDialog
+modelDisplayName: Send email with options
+modelDescription: "This operation sends an email with multiple options and waits for the recipient to respond back with one of the options. Please refer to the following link regarding the support of actionable messages in different mail clients: https://docs.microsoft.com/outlook/actionable-messages/#outlook-version-requirements-for-actionable-messages."
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: Message.To
+    name: To 
+    entity: StringPrebuiltEntity
+
+outputs:
+  - propertyName: id
+
+  - propertyName: notificationType
+
+  - propertyName: notificationUrl
+
+  - propertyName: resource
+
+action:
+  kind: InvokeConnectorTaskAction
+  connectionReference: cr81c_websiteQACopilot.shared_office365.shared-office365-d6a6fada-9349-474f-9bc9-4a5cb5160bc2
+  connectionProperties:
+    mode: Invoker
+
+  operationId: SendMailWithOptions
+
+outputMode: All

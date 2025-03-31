@@ -1,0 +1,11 @@
+<botcomponent schemaname="cr81c_websiteQACopilot.topic.C21_Wjm0gnCkMG8YxDGI6nIKU">
+  <componenttype>16</componenttype>
+  <description>This knowledge source provides information found in C21 SharePoint.</description>
+  <iscustomizable>0</iscustomizable>
+  <name>C21</name>
+  <parentbotid>
+    <schemaname>cr81c_websiteQACopilot</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

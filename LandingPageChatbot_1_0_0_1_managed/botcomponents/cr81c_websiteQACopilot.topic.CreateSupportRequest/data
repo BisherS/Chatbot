@@ -1,0 +1,91 @@
+kind: AdaptiveDialog
+beginDialog:
+  kind: OnRecognizedIntent
+  id: main
+  intent:
+    triggerQueries:
+      - create support request
+      - open a support ticket
+      - need help with an issue
+      - submit a support request
+      - report a problem
+      - get technical assistance
+      - contact support team
+      - file a complaint
+      - request customer service
+
+  actions:
+    - kind: Question
+      id: Question_xeM2sy
+      variable: Topic.support_description
+      prompt: Can you describe your problem in as much detail as possible?
+      entity: StringPrebuiltEntity
+
+    - kind: Question
+      id: Question_4r4jPI
+      variable: Topic.Var1
+      prompt: Would you like to attach images or screenshots?
+      entity:
+        kind: EmbeddedEntity
+        definition:
+          kind: ClosedListEntity
+          items:
+            - id: Yes
+              displayName: Yes
+
+            - id: No
+              displayName: No
+
+        displayName: EmbeddedEntity-WsgAve
+
+    - kind: ConditionGroup
+      id: ConditionGroup_y7c9yy
+      conditions:
+        - id: ConditionItem_yA3pp8
+          condition: =Topic.UserChoice = "[object Object]"
+          actions:
+            - kind: SendActivity
+              id: SendActivity_G13K9P
+              activity: Please upload your files.
+
+    - kind: ConditionGroup
+      id: ConditionGroup_sIyNEu
+      conditions:
+        - id: ConditionItem_I0rhsO
+          condition: =user.email
+          actions:
+            - kind: SendActivity
+              id: SendActivity_9WMP1L
+              activity: "We have your email on file: {user.email}"
+
+        - id: ConditionItem_fzejYu
+          condition: =!user.email
+          actions:
+            - kind: Question
+              id: Question_OMvIJ1
+              variable: user_email
+              prompt: Can you provide your email address so we can follow up?
+              entity: EmailPrebuiltEntity
+
+    - kind: Question
+      id: Question_W42Fj3
+      variable: submit_support_request
+      prompt: Would you like to submit this information to support now?
+      entity: BooleanPrebuiltEntity
+
+    - kind: ConditionGroup
+      id: ConditionGroup_Ua8chs
+      conditions:
+        - id: ConditionItem_Mqxkd8
+          condition: =submit_support_request
+          actions:
+            - kind: SendActivity
+              id: SendActivity_60AsCI
+              activity: Triggering Power Automate flow to send an email to the support team.
+
+            - kind: SendActivity
+              id: SendActivity_iQRobd
+              activity: Your request has been submitted! Support will get back to you within 2-3 business days via email at {user_email}.
+
+inputType: {}
+outputType: {}

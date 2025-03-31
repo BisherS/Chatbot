@@ -1,0 +1,121 @@
+kind: AdaptiveDialog
+beginDialog:
+  kind: OnRecognizedIntent
+  id: main
+  intent:
+    triggerQueries:
+      - power platform support
+      - getting started with power platform
+      - help with power platform
+      - power platform tutorial
+      - how to use power platform
+      - power platform assistance
+      - beginner guide to power platform
+      - power platform setup help
+
+  actions:
+    - kind: SendActivity
+      id: SendActivity_Er6PaM
+      activity: Hello! Are you looking to get started or troubleshoot an error?
+
+    - kind: Question
+      id: Question_IXDCCY
+      variable: Topic.UserChoice
+      prompt: "Please choose one of the following options: get started or troubleshoot an error."
+      entity:
+        kind: EmbeddedEntity
+        definition:
+          kind: ClosedListEntity
+          optionSetName: UserChoiceOptions
+          items:
+            - id: get_started
+              displayName: Get Started
+
+            - id: troubleshoot_error
+              displayName: Troubleshoot an Error
+
+    - kind: ConditionGroup
+      id: ConditionGroup_oTFY8C
+      conditions:
+        - id: ConditionItem_qsVVZg
+          condition: =Topic.UserChoice = UserChoiceOptions.get_started
+          actions:
+            - kind: Question
+              id: Question_gMpwdL
+              variable: Topic.PlatformChoice
+              prompt: Which platform are you interested in? Power Apps, Power Automate, Power Pages, or Copilot Studio?
+              entity:
+                kind: EmbeddedEntity
+                definition:
+                  kind: ClosedListEntity
+                  optionSetName: PlatformOptions
+                  items:
+                    - id: power_apps
+                      displayName: Power Apps
+
+                    - id: power_automate
+                      displayName: Power Automate
+
+                    - id: power_pages
+                      displayName: Power Pages
+
+                    - id: copilot_studio
+                      displayName: Copilot Studio
+
+            - kind: ConditionGroup
+              id: ConditionGroup_QKnSrS
+              conditions:
+                - id: ConditionItem_XfbYdG
+                  condition: =Topic.PlatformChoice = PlatformOptions.power_apps
+                  actions:
+                    - kind: SearchAndSummarizeContent
+                      id: q2SNdS
+                      userInput: Power Apps
+                      fileSearchDataSource:
+                        searchFilesMode:
+                          kind: DoNotSearchFiles
+
+                      knowledgeSources:
+                        kind: SearchSpecificKnowledgeSources
+                        knowledgeSources:
+                          - cr81c_websiteQACopilot.topic.C21_Wjm0gnCkMG8YxDGI6nIKU
+
+                - id: ConditionItem_FKfwOi
+                  condition: =Topic.PlatformChoice = PlatformOptions.power_automate
+                  actions:
+                    - kind: SearchAndSummarizeContent
+                      id: WcAcgY
+                      userInput: Power Automate
+
+                - id: ConditionItem_RAonlb
+                  condition: =Topic.PlatformChoice = PlatformOptions.power_pages
+                  actions:
+                    - kind: SearchAndSummarizeContent
+                      id: DFIkFr
+                      userInput: Power Pages
+
+                - id: ConditionItem_uu46Rm
+                  condition: =Topic.PlatformChoice = PlatformOptions.copilot_studio
+                  actions:
+                    - kind: SearchAndSummarizeContent
+                      id: cEd74e
+                      userInput: Copilot Studio
+
+        - id: ConditionItem_cHxqoK
+          condition: =Topic.UserChoice = UserChoiceOptions.troubleshoot_error
+          actions:
+            - kind: SendActivity
+              id: SendActivity_0ISCGd
+              activity: If you're experiencing an error, we recommend posting your question in our Community of Practice, a global group of 5,000+ members. [Power Platform CoP Teams](https://teams.microsoft.com/l/team/19%3Afbf0db3f5f56496f989a93eb097f13f2%40thread.tacv2/conversations?groupId=2f7281dc-4766-436b-a694-476e728d5953&tenantId=3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac). You can also email our CoE at powerplatform@scania.com if you need more support. 
+
+      elseActions:
+        - kind: SendActivity
+          id: SendActivity_i9SkBe
+          activity: I'm sorry, I didn't understand your choice. Please try again.
+
+    - kind: SendActivity
+      id: SendActivity_w9SV73
+      activity: Is there anything else you need help with? 
+
+inputType: {}
+outputType: {}

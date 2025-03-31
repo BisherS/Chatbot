@@ -1,0 +1,11 @@
+<botcomponent schemaname="cr81c_websiteQACopilot.gpt.default">
+  <componenttype>15</componenttype>
+  <description>A chatbot that answers common questions about the Power Platform, including licensing, support, our Center of Excellence (CoE), and how to get started. It uses content from our Power Platform SharePoint site to provide up‐to‐date information.</description>
+  <iscustomizable>0</iscustomizable>
+  <name>Power Platform Q&amp;A Bot</name>
+  <parentbotid>
+    <schemaname>cr81c_websiteQACopilot</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

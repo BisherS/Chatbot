@@ -1,0 +1,12 @@
+{
+  "$kind": "BotConfiguration",
+  "gPTSettings": {
+    "$kind": "GPTSettings",
+    "defaultSchemaName": "cr81c_websiteQACopilot.gpt.default"
+  },
+  "aISettings": {
+    "$kind": "AISettings",
+    "useModelKnowledge": false,
+    "isSemanticSearchEnabled": true
+  }
+}

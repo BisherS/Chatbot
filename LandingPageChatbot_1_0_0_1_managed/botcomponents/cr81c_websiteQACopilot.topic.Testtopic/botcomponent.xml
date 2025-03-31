@@ -1,0 +1,10 @@
+<botcomponent schemaname="cr81c_websiteQACopilot.topic.Testtopic">
+  <componenttype>9</componenttype>
+  <iscustomizable>0</iscustomizable>
+  <name>Test topic</name>
+  <parentbotid>
+    <schemaname>cr81c_websiteQACopilot</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

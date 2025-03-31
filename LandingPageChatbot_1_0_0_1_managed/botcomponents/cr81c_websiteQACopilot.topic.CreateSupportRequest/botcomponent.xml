@@ -1,0 +1,10 @@
+<botcomponent schemaname="cr81c_websiteQACopilot.topic.CreateSupportRequest">
+  <componenttype>9</componenttype>
+  <iscustomizable>0</iscustomizable>
+  <name>Create Support Request</name>
+  <parentbotid>
+    <schemaname>cr81c_websiteQACopilot</schemaname>
+  </parentbotid>
+  <statecode>1</statecode>
+  <statuscode>2</statuscode>
+</botcomponent>

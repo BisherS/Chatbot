@@ -1,0 +1,113 @@
+kind: AdaptiveDialog
+beginDialog:
+  kind: OnConversationStart
+  id: main
+  actions:
+    - kind: AdaptiveCardPrompt
+      id: gZnHqS
+      interruptionPolicy:
+        interruptionTopicListFilter:
+          kind: IncludeSelectedTopics
+          allowedInterruptTopics:
+            - cr81c_websiteQACopilot.topic.Escalate
+            - cr81c_websiteQACopilot.topic.Goodbye
+            - cr81c_websiteQACopilot.topic.Greeting
+            - cr81c_websiteQACopilot.topic.PowerPlatformSupportandGettingStarted
+            - cr81c_websiteQACopilot.topic.StartOver
+            - cr81c_websiteQACopilot.topic.Testtopic
+            - cr81c_websiteQACopilot.topic.ThankYou
+
+      card: |
+        {
+          "type": "AdaptiveCard",
+          "body": [
+            {
+              "type": "TextBlock",
+              "text": "Hello, and welcome to our Power Platform Q&A Bot!",
+              "weight": "Bolder",
+              "size": "Medium"
+            },
+            {
+              "type": "TextBlock",
+              "text": "I can help you find information about licensing, support, our Champion Program, CoE best practices, and more. How can I assist you today? 😊",
+              "wrap": true
+            },
+            {
+              "type": "TextBlock",
+              "text": "Choose a topic below to get started:",
+              "weight": "Bolder",
+              "spacing": "Medium"
+            }
+          ],
+          "actions": [
+            {
+              "type": "Action.Submit",
+              "title": "🚀 Get started with Power Platform",
+              "data": {
+                "action": "get_started"
+              }
+            },
+            {
+              "type": "Action.Submit",
+              "title": "📜 Licensing Information",
+              "data": {
+                "action": "licensing_info"
+              }
+            },
+            {
+              "type": "Action.Submit",
+              "title": "💡 CoE Best Practices",
+              "data": {
+                "action": "coe_best_practices"
+              }
+            },
+            {
+              "type": "Action.Submit",
+              "title": "🏆 Champion Program",
+              "data": {
+                "action": "champion_program"
+              }
+            },
+            {
+              "type": "Action.Submit",
+              "title": "🛠️ Support & Help",
+              "data": {
+                "action": "support_help"
+              }
+            },
+            {
+              "type": "Action.Submit",
+              "title": "🌍 Environment Creation",
+              "data": {
+                "action": "environment_creation"
+              }
+            }
+          ],
+          "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+          "version": "1.4"
+        }
+      output:
+        binding:
+          action: Topic.action
+          actionSubmitId: Topic.actionSubmitId
+
+      outputType:
+        properties:
+          action: String
+          actionSubmitId: String
+
+    - kind: SearchAndSummarizeContent
+      id: UMtC21
+      userInput: =Topic.actionSubmitId
+      fileSearchDataSource:
+        searchFilesMode:
+          kind: DoNotSearchFiles
+
+      knowledgeSources:
+        kind: SearchSpecificKnowledgeSources
+        knowledgeSources:
+          - cr81c_websiteQACopilot.topic.C21_Wjm0gnCkMG8YxDGI6nIKU
+
+    - kind: SendActivity
+      id: sendActivity_4DgFTz
+      activity: Is there anything else you need help with?
